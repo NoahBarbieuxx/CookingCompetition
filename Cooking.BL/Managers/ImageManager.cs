@@ -11,23 +11,11 @@ namespace Cooking.BL.Managers
 {
     public class ImageManager
     {
-        private readonly IImageRepository _imageRepository;
+        private IImageRepository _imageRepository;
 
         public ImageManager(IImageRepository imageRepository)
         {
             _imageRepository = imageRepository;
-        }
-
-        public void AddImagesToRecipe(int recipeId, Image images)
-        {
-            try
-            {
-                _imageRepository.AddImagesToRecipe(recipeId, images);
-            }
-            catch (Exception ex)
-            {
-                throw new ImageManagerException("AddImagesToRecipe", ex);
-            }
         }
 
         public List<Image> GetImagesFromRecipe(int recipeId)
@@ -39,6 +27,18 @@ namespace Cooking.BL.Managers
             catch (Exception ex)
             {
                 throw new ImageManagerException("GetImagesFromRecipe", ex);
+            }
+        }
+
+        public void AddImagesToRecipe(int recipeId, Image images)
+        {
+            try
+            {
+                _imageRepository.AddImagesToRecipe(recipeId, images);
+            }
+            catch (Exception ex)
+            {
+                throw new ImageManagerException("AddImagesTorRecipe", ex);
             }
         }
     }

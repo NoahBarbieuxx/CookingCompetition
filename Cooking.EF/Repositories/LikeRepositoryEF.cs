@@ -14,31 +14,30 @@ namespace Cooking.EF.Repositories
 {
     public class LikeRepositoryEF : ILikeRepository
     {
-        private readonly CookingContext _ctx;
+        private readonly CookingContext ctx;
 
         public LikeRepositoryEF(string connectionString)
         {
-            _ctx = new CookingContext(connectionString);
+            this.ctx = new CookingContext(connectionString);
         }
 
         private void SaveAndClear()
         {
-            _ctx.SaveChanges();
-            _ctx.ChangeTracker.Clear();
+            ctx.SaveChanges();
+            ctx.ChangeTracker.Clear();
         }
 
         public void AddLikeToRecipe(int recipeId, Like like)
         {
             try
             {
-                RecipeEF recipeEF = _ctx.Recipes.FirstOrDefault(x => x.RecipeId == recipeId);
+                RecipeEF recipeEF = ctx.Recipes
+                    .FirstOrDefault(x => x.RecipeId == recipeId);
 
                 LikeEF likeEF = MapLike.MapToDB(like);
                 recipeEF.Likes.Add(likeEF);
 
                 SaveAndClear();
-
-                like.LikeId = likeEF.LikeId;
             }
             catch (Exception ex)
             {
@@ -50,9 +49,14 @@ namespace Cooking.EF.Repositories
         {
             try
             {
-                RecipeEF recipeEF = _ctx.Recipes
+                RecipeEF recipeEF = ctx.Recipes
                     .Include(x => x.Likes)
                     .FirstOrDefault(x => x.RecipeId == recipeId);
+
+                if (recipeEF == null)
+                {
+                    throw new RecipeRepositoryException($"GetLikesByRecipeId - Recipe with ID {recipeId} not found.");
+                }
 
                 List<Like> likes = recipeEF.Likes.Select(MapLike.MapToDomain).ToList();
 

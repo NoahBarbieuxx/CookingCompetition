@@ -9,10 +9,7 @@ namespace Cooking.BL.Interfaces
 {
     public interface IImageRepository
     {
-        // POST
-        void AddImagesToRecipe(int recipeId, Image images);
-
-        // GET
         List<Image> GetImagesFromRecipe(int recipeId);
+        void AddImagesToRecipe(int recipeId, Image images);
     }
 }

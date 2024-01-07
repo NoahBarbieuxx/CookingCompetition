@@ -11,18 +11,18 @@ namespace Cooking.BL.Managers
 {
     public class LikeManager
     {
-        private readonly ILikeRepository _likeRepository;
+        private readonly ILikeRepository _repo;
 
-        public LikeManager(ILikeRepository likeRepository)
+        public LikeManager(ILikeRepository repo)
         {
-            _likeRepository = likeRepository;
+            _repo = repo;
         }
 
         public void AddLikeToRecipe(int recipeId, Like like)
         {
             try
             {
-                _likeRepository.AddLikeToRecipe(recipeId, like);
+                _repo.AddLikeToRecipe(recipeId, like);
             }
             catch (Exception ex)
             {
@@ -34,11 +34,11 @@ namespace Cooking.BL.Managers
         {
             try
             {
-                return _likeRepository.GetLikesByRecipeId(recipeId);
+                return _repo.GetLikesByRecipeId(recipeId);
             }
             catch (Exception ex)
             {
-                throw new LikeManagerException("GetLikesByRecipeId", ex);
+                throw new LikeManagerException("GetLikesByRecipeId");
             }
         }
     }

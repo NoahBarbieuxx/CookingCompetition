@@ -30,7 +30,6 @@ namespace Cooking.EF.Models
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(TypeName = "varchar(250)")]
         public string Email { get; set; }
-
         public List<RecipeEF> Recipes { get; set; } = new List<RecipeEF>();
     }
 }

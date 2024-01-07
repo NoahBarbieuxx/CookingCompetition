@@ -11,18 +11,30 @@ namespace Cooking.BL.Managers
 {
     public class UserManager
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserRepository _repo;
 
         public UserManager(IUserRepository repo)
         {
-            _userRepository = repo;
+            _repo = repo;
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            try
+            {
+                return _repo.GetUserByEmail(email);
+            }
+            catch (Exception ex)
+            {
+                throw new UserManagerException("GetUserById", ex);
+            }
         }
 
         public void AddUser(User user)
         {
             try
             {
-                _userRepository.AddUser(user);
+                _repo.AddUser(user);
             }
             catch (Exception ex)
             {
@@ -30,23 +42,11 @@ namespace Cooking.BL.Managers
             }
         }
 
-        public User GetUserByEmail(string email)
-        {
-            try
-            {
-                return _userRepository.GetUserByEmail(email);
-            }
-            catch (Exception ex)
-            {
-                throw new UserManagerException("GetUserByEmail", ex);
-            }
-        }
-
         public bool UserExists(string email)
         {
             try
             {
-                return _userRepository.UserExists(email);
+                return _repo.UserExists(email);
             }
             catch (Exception ex)
             {

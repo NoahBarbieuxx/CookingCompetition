@@ -24,10 +24,10 @@ namespace Cooking.BL.Models
             Recipes = recipes;
         }
 
-        public Challenge(string challengeName, string description, DateTime startDate, DateTime endDate, List<Recipe> recipes)
+        public Challenge(string challengeName, string challengeDescription, DateTime startDate, DateTime endDate, List<Recipe> recipes)
         {
             ChallengeName = challengeName;
-            Description= description;
+            Description= challengeDescription;
             StartDate = startDate;
             EndDate = endDate;
             Recipes = recipes;
@@ -44,7 +44,7 @@ namespace Cooking.BL.Models
             {
                 if (value <= 0)
                 {
-                    throw new ChallengeException("ChallengeId is invalid! (Must be greater than 0)");
+                    throw new ChallengeException("ID is invalid!");
                 }
                 else
                 {
@@ -64,7 +64,7 @@ namespace Cooking.BL.Models
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ChallengeException("ChallengeName is invalid! (Must be a filled string)");
+                    throw new ChallengeException("ChallengeName is invalid!");
                 }
                 else
                 {
@@ -84,7 +84,7 @@ namespace Cooking.BL.Models
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ChallengeException("Description is invalid! (Must be a filled string)");
+                    throw new ChallengeException("Description is invalid!");
                 }
                 else
                 {
@@ -117,7 +117,7 @@ namespace Cooking.BL.Models
             {
                 if (value < StartDate)
                 {
-                    throw new ChallengeException("EndDate is invalid! (Date must be greater than the StartDate)");
+                    throw new ChallengeException("Date can't be in the past or earlier than the start date!");
                 }
                 else
                 {
@@ -136,6 +136,22 @@ namespace Cooking.BL.Models
             set
             {
                 _recipes = value;
+            }
+        }
+
+        public void AddRecipe(Recipe recipe)
+        {
+            if (recipe == null)
+            {
+                throw new ChallengeException("AddRecipe - Recipe is null!");
+            }
+            if (_recipes.Contains(recipe))
+            {
+                throw new ChallengeException("AddRecipe - RecipeExists");
+            }
+            else
+            {
+                _recipes.Add(recipe);
             }
         }
     }

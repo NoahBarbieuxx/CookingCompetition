@@ -6130,11 +6130,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL.Tests\\Cooking.BL.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL.Tests\\Cooking.BL.Tests.csproj",
       "projectName": "Cooking.BL.Tests",
-      "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL.Tests\\Cooking.BL.Tests.csproj",
+      "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL.Tests\\Cooking.BL.Tests.csproj",
       "packagesPath": "C:\\Users\\barbi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL.Tests\\obj\\",
+      "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\barbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6151,8 +6151,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj": {
-              "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj"
+            "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj": {
+              "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj"
             }
           }
         }

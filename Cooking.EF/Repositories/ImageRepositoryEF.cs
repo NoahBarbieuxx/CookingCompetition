@@ -14,24 +14,38 @@ namespace Cooking.EF.Repositories
 {
     public class ImageRepositoryEF : IImageRepository
     {
-        private readonly CookingContext _ctx;
+        private readonly CookingContext ctx;
 
         public ImageRepositoryEF(string connectionString)
         {
-            _ctx = new CookingContext(connectionString);
+            this.ctx = new CookingContext(connectionString);
+        }
+
+        public List<Image> GetImagesFromRecipe(int recipeId)
+        {
+            try
+            {
+                RecipeEF recipeEF = ctx.Recipes.Include(x => x.Images).Include(x => x.User).AsNoTracking().FirstOrDefault(x => x.RecipeId == recipeId);
+
+                Recipe recipeCorrect = MapRecipe.MapToDomain(recipeEF);
+
+                return recipeCorrect.Images;
+            }
+            catch (Exception ex)
+            {
+                throw new ImageRepositoryException("GetImagesFromRecipe", ex);
+            }
         }
 
         public void AddImagesToRecipe(int recipeId, Image images)
         {
             try
             {
-                RecipeEF recipeEF = _ctx.Recipes.Include(x => x.Images).FirstOrDefault(x => x.RecipeId == recipeId);
+                RecipeEF recipeEF = ctx.Recipes.Include(x => x.Images).FirstOrDefault(x => x.RecipeId == recipeId);
 
                 ImageEF imageEF = MapImage.MapToDB(images);
-
                 recipeEF.Images.Add(imageEF);
-                _ctx.Images.Add(imageEF);
-
+                ctx.Images.Add(imageEF);
                 SaveAndClear();
             }
             catch (Exception ex)
@@ -40,33 +54,10 @@ namespace Cooking.EF.Repositories
             }
         }
 
-        public List<Image> GetImagesFromRecipe(int recipeId)
-        {
-            try
-            {
-                RecipeEF recipeEF = _ctx.Recipes.Include(x => x.Images).Include(x => x.User).AsNoTracking().FirstOrDefault(x => x.RecipeId == recipeId);
-
-                Recipe recipeCorrect = MapRecipe.MapToDomain(recipeEF);
-
-                if (recipeCorrect == null)
-                {
-                    return null;
-                }
-                else
-                {
-                    return recipeCorrect.Images;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new ImageRepositoryException("GetImagesFromRecipe", ex);
-            }
-        }
-
         private void SaveAndClear()
         {
-            _ctx.SaveChanges();
-            _ctx.ChangeTracker.Clear();
+            ctx.SaveChanges();
+            ctx.ChangeTracker.Clear();
         }
     }
 }

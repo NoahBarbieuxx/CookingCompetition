@@ -1,6 +1,7 @@
 .Challenges {
     display: flex;
     align-items: center;
+    z-index: -1;
 }
 
 .ChallengeMain {
@@ -57,9 +58,10 @@
 
 .ChallengeRecipeMain {
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
     align-items: center;
-    width: 75vw;
+    gap: 30px;
+    width: 100vw;
     height: 400px;
-    margin: 0 0 0 200px;
+    margin: 0 0 0 180px;
 }

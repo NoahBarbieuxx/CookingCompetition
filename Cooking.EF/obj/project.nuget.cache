@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GSpSXnV6EUa20J7K3wpI8O3qjnJDRxgRFkrE02poqAh42jIR4gGSZTiY8uyY2re+sgPMqY9jixB7VmrwarBJYw==",
+  "dgSpecHash": "cvAinx/dyf8+Xzvs/RfH0IAL6BpkHzSMC3LGqgrW3iwU0JbUzadre7Iuv0ccVRQruDTi4MSm1bD03q8FSM8jbg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.EF\\Cooking.EF.csproj",
+  "projectFilePath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.EF\\Cooking.EF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\barbi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\barbi\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

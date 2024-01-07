@@ -14,24 +14,25 @@ namespace Cooking.EF.Mappers
 {
     public class MapRecipe
     {
-        public static RecipeEF MapToDB(UserEF userEF, Recipe recipe)
+        public static RecipeEF MapToDB(UserEF u, Recipe r, CookingContext ctx)
         {
             try
             {
                 List<ImageEF> images = new List<ImageEF>();
 
-                if (recipe.Images != null)
+                if (r.Images != null)
                 {
-                    foreach (Image image in recipe.Images)
+                    foreach (Image i in r.Images)
                     {
-                        ImageEF imageEF = new ImageEF(image.ImageUrl);
+                        ImageEF imageEF = new ImageEF(i.ImageUrl);
                         images.Add(imageEF);
                     }
                 }
 
-                RecipeEF recipeEF = new RecipeEF(recipe.RecipeId, recipe.RecipeName, recipe.Description, images, userEF);
+                RecipeEF recipeEF = new RecipeEF(r.RecipeName, r.Description, images, u);
 
                 return recipeEF;
+
             }
             catch (Exception ex)
             {
@@ -43,36 +44,30 @@ namespace Cooking.EF.Mappers
         {
             try
             {
-                if (recipeEF == null)
+                Recipe recipe = new Recipe(recipeEF.RecipeId, recipeEF.RecipeName, recipeEF.RecipeDescription, null, new User(recipeEF.User.Email), null);
+
+                List<Image> images = new List<Image>();
+                if (recipeEF.Images != null)
                 {
-                    return null;
+                    foreach (ImageEF imageEF in recipeEF.Images)
+                    {
+                        images.Add(MapImage.MapToDomain(imageEF));
+                        recipe.Images = images;
+                    }
                 }
-                else
+
+                if (recipeEF.Likes != null)
                 {
-                    Recipe recipe = new Recipe(recipeEF.RecipeId, recipeEF.RecipeName, recipeEF.RecipeDescription, null, new User(recipeEF.User.Email), null);
-
-                    List<Image> images = new List<Image>();
-                    if (recipeEF.Images != null)
+                    List<Like> likes = new List<Like>();
+                    foreach (LikeEF likeEF in recipeEF.Likes)
                     {
-                        foreach (ImageEF imageEF in recipeEF.Images)
-                        {
-                            images.Add(MapImage.MapToDomain(imageEF));
-                            recipe.Images = images;
-                        }
+                        likes.Add(MapLike.MapToDomain(likeEF));
+                        recipe.Likes = likes;
                     }
-
-                    if (recipeEF.Likes != null)
-                    {
-                        List<Like> likes = new List<Like>();
-                        foreach (LikeEF likeEF in recipeEF.Likes)
-                        {
-                            likes.Add(MapLike.MapToDomain(likeEF));
-                            recipe.Likes = likes;
-                        }
-                    }
-
-                    return recipe;
                 }
+
+
+                return recipe;
             }
             catch (Exception ex)
             {

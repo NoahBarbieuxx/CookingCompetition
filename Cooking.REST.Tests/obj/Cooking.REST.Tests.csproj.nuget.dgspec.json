@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST.Tests\\Cooking.REST.Tests.csproj": {}
+    "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST.Tests\\Cooking.REST.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj": {
+    "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj",
+        "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj",
         "projectName": "Cooking.BL",
-        "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj",
+        "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj",
         "packagesPath": "C:\\Users\\barbi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\obj\\",
+        "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\barbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +59,14 @@
         }
       }
     },
-    "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.EF\\Cooking.EF.csproj": {
+    "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.EF\\Cooking.EF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.EF\\Cooking.EF.csproj",
+        "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.EF\\Cooking.EF.csproj",
         "projectName": "Cooking.EF",
-        "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.EF\\Cooking.EF.csproj",
+        "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.EF\\Cooking.EF.csproj",
         "packagesPath": "C:\\Users\\barbi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.EF\\obj\\",
+        "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.EF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\barbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,8 +83,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj": {
-                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj"
+              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj": {
+                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj"
               }
             }
           }
@@ -130,14 +130,14 @@
         }
       }
     },
-    "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST.Tests\\Cooking.REST.Tests.csproj": {
+    "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST.Tests\\Cooking.REST.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST.Tests\\Cooking.REST.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST.Tests\\Cooking.REST.Tests.csproj",
         "projectName": "Cooking.REST.Tests",
-        "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST.Tests\\Cooking.REST.Tests.csproj",
+        "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST.Tests\\Cooking.REST.Tests.csproj",
         "packagesPath": "C:\\Users\\barbi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST.Tests\\obj\\",
+        "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\barbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -154,11 +154,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj": {
-                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj"
+              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj": {
+                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj"
               },
-              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST\\Cooking.REST.csproj": {
-                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST\\Cooking.REST.csproj"
+              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.EF\\Cooking.EF.csproj": {
+                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.EF\\Cooking.EF.csproj"
+              },
+              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST\\Cooking.REST.csproj": {
+                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST\\Cooking.REST.csproj"
               }
             }
           }
@@ -180,10 +183,6 @@
             "Moq": {
               "target": "Package",
               "version": "[4.20.70, )"
-            },
-            "Serilog.Extensions.Logging.File": {
-              "target": "Package",
-              "version": "[3.0.0, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -222,14 +221,14 @@
         }
       }
     },
-    "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST\\Cooking.REST.csproj": {
+    "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST\\Cooking.REST.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST\\Cooking.REST.csproj",
+        "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST\\Cooking.REST.csproj",
         "projectName": "Cooking.REST",
-        "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST\\Cooking.REST.csproj",
+        "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST\\Cooking.REST.csproj",
         "packagesPath": "C:\\Users\\barbi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST\\obj\\",
+        "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\barbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -246,11 +245,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj": {
-                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj"
+              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj": {
+                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj"
               },
-              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.EF\\Cooking.EF.csproj": {
-                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.EF\\Cooking.EF.csproj"
+              "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.EF\\Cooking.EF.csproj": {
+                "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.EF\\Cooking.EF.csproj"
               }
             }
           }

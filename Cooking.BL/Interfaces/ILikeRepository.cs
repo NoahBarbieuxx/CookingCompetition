@@ -9,10 +9,7 @@ namespace Cooking.BL.Interfaces
 {
     public interface ILikeRepository
     {
-        // POST
         void AddLikeToRecipe(int recipeId, Like like);
-
-        // GET
         List<Like> GetLikesByRecipeId(int recipeId);
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Cooking.BL.Managers;
 using Cooking.BL.Models;
-using Cooking.EF.Models;
 using Cooking.REST.Models.Input;
 using Cooking.REST.Models.Output;
 using Microsoft.AspNetCore.Cors;

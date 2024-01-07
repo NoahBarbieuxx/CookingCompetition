@@ -14,32 +14,18 @@ namespace Cooking.EF.Repositories
 {
     public class UserRepositoryEF : IUserRepository
     {
-        private readonly CookingContext _ctx;
+        private readonly CookingContext ctx;
 
         public UserRepositoryEF(string connectionString)
         {
-            _ctx = new CookingContext(connectionString);
-        }
-
-        public void AddUser(User user)
-        {
-            try
-            {
-                UserEF userEF = MapUser.MapToDB(user);
-                _ctx.Users.Add(userEF);
-                SaveAndClear();
-            }
-            catch (Exception ex)
-            {
-                throw new UserRepositoryException("AddUser", ex);
-            }
+            this.ctx = new CookingContext(connectionString);
         }
 
         public User GetUserByEmail(string email)
         {
             try
             {
-                return MapUser.MapToDomain(_ctx.Users
+                return MapUser.MapToDomain(ctx.Users
                     .Include(x => x.Recipes)
                     .ThenInclude(x => x.Likes)
                     .Include(x => x.Recipes)
@@ -54,11 +40,25 @@ namespace Cooking.EF.Repositories
             }
         }
 
+        public void AddUser(User user)
+        {
+            try
+            {
+                UserEF userEF = MapUser.MapToDB(user, ctx);
+                ctx.Users.Add(userEF);
+                SaveAndClear();
+            }
+            catch (Exception ex)
+            {
+                throw new UserRepositoryException("AddUser", ex);
+            }
+        }
+
         public bool UserExists(string email)
         {
             try
             {
-                return _ctx.Users.Any(x => x.Email == email);
+                return ctx.Users.Any(x => x.Email == email);
             }
             catch (Exception ex)
             {
@@ -68,8 +68,13 @@ namespace Cooking.EF.Repositories
 
         private void SaveAndClear()
         {
-            _ctx.SaveChanges();
-            _ctx.ChangeTracker.Clear();
+            ctx.SaveChanges();
+            ctx.ChangeTracker.Clear();
+        }
+
+        public User GetUserById(string email)
+        {
+            throw new NotImplementedException();
         }
     }
 }

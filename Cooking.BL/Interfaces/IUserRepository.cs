@@ -9,13 +9,8 @@ namespace Cooking.BL.Interfaces
 {
     public interface IUserRepository
     {
-        // POST
-        void AddUser(User user);
-
-        // GET
         User GetUserByEmail(string email);
-
-        // ANDERE
+        void AddUser(User user);
         bool UserExists(string email);
     }
 }

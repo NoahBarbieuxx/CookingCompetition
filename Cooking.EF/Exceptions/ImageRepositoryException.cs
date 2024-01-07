@@ -8,10 +8,6 @@ namespace Cooking.EF.Exceptions
 {
     public class ImageRepositoryException : Exception
     {
-        public ImageRepositoryException(string? message) : base(message)
-        {
-        }
-
         public ImageRepositoryException(string? message, Exception? innerException) : base(message, innerException)
         {
         }

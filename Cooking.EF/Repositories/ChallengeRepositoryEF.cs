@@ -14,19 +14,19 @@ namespace Cooking.EF.Repositories
 {
     public class ChallengeRepositoryEF : IChallengeRepository
     {
-        private readonly CookingContext _ctx;
+        private readonly CookingContext ctx;
 
         public ChallengeRepositoryEF(string connectionString)
         {
-            _ctx = new CookingContext(connectionString);
+            this.ctx = new CookingContext(connectionString);
         }
 
         public void AddChallenge(Challenge challenge)
         {
             try
             {
-                ChallengeEF challengeEF = MapChallenge.MapToDB(challenge, _ctx);
-                _ctx.Challenges.Add(challengeEF);
+                ChallengeEF challengeEF = MapChallenge.MapToDB(challenge, ctx);
+                ctx.Challenges.Add(challengeEF);
                 SaveAndClear();
                 challenge.ChallengeId = challengeEF.ChallengeId;
             }
@@ -40,7 +40,7 @@ namespace Cooking.EF.Repositories
         {
             try
             {
-                return _ctx.Challenges.Select(x => MapChallenge.MapToDomain(x)).ToList();
+                return ctx.Challenges.Select(x => MapChallenge.MapToDomain(x)).ToList();
             }
             catch (Exception ex)
             {
@@ -50,7 +50,7 @@ namespace Cooking.EF.Repositories
 
         public Challenge GetChallengeById(int challengeId)
         {
-            ChallengeEF challengeEF = _ctx.Challenges.Where(x => x.ChallengeId == challengeId)
+            ChallengeEF challengeEF = ctx.Challenges.Where(x => x.ChallengeId == challengeId)
                 .Include(x => x.Recipes)
                 .ThenInclude(x => x.Likes)
                 .Include(x => x.Recipes)
@@ -65,8 +65,8 @@ namespace Cooking.EF.Repositories
 
         private void SaveAndClear()
         {
-            _ctx.SaveChanges();
-            _ctx.ChangeTracker.Clear();
+            ctx.SaveChanges();
+            ctx.ChangeTracker.Clear();
         }
     }
 }

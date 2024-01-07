@@ -1,11 +1,11 @@
-﻿using Castle.Core.Logging;
-using Cooking.BL.Interfaces;
+﻿using Cooking.BL.Interfaces;
 using Cooking.BL.Managers;
 using Cooking.BL.Models;
 using Cooking.REST.Controllers;
 using Cooking.REST.Models.Input;
 using Cooking.REST.Models.Output;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -20,15 +20,19 @@ namespace Cooking.REST.Tests
         private readonly Mock<IChallengeRepository> mockChallengeRepository;
         private readonly ChallengeManager challengeManager;
         private readonly ChallengeController challengeController;
-        private readonly Mock<ILoggerFactory> mockLoggerFactory;
 
         public ChallengeControllerTest()
         {
+            // Create a mock ILoggerFactory and use it to create a logger
+            var loggerFactory = new Mock<ILoggerFactory>();
+            var Logger = new Mock<ILogger<ChallengeController>>();
+            loggerFactory.Setup(factory => factory.CreateLogger(It.IsAny<string>())).Returns(Logger.Object);
+
             mockChallengeRepository = new Mock<IChallengeRepository>();
             // Initialize ChallengeManager with the mocked repository
             challengeManager = new ChallengeManager(mockChallengeRepository.Object);
             // Initialize ChallengeController with the real ChallengeManager
-            challengeController = new ChallengeController(challengeManager, mockLoggerFactory);
+            challengeController = new ChallengeController(challengeManager, loggerFactory.Object);
         }
 
         [Fact]
@@ -84,22 +88,22 @@ namespace Cooking.REST.Tests
         {
             // Arrange
             var challenges = new List<Challenge>
-    {
-        new Challenge
-        {
-            ChallengeName = "Challenge 1",
-            Description = "Description 1",
-            StartDate = DateTime.Now.AddDays(1), // Set a future date
-            EndDate = DateTime.Now.AddDays(7),
-        },
-        new Challenge
-        {
-            ChallengeName = "Challenge 2",
-            Description = "Description 2",
-            StartDate = DateTime.Now.AddDays(2), // Set a different future date
-            EndDate = DateTime.Now.AddDays(7),
-        },
-    };
+            {
+                new Challenge
+                {
+                    ChallengeName = "Challenge 1",
+                    Description = "Description 1",
+                    StartDate = DateTime.Now.AddDays(1), // Set a future date
+                    EndDate = DateTime.Now.AddDays(7),
+                },
+                new Challenge
+                {
+                    ChallengeName = "Challenge 2",
+                    Description = "Description 2",
+                    StartDate = DateTime.Now.AddDays(2), // Set a different future date
+                    EndDate = DateTime.Now.AddDays(7),
+                },
+            };
 
             // Mock the behavior of _challengeManager.GetAllChallenges to return the list of challenges
             mockChallengeRepository.Setup(manager => manager.GetAllChallenges())
@@ -111,6 +115,19 @@ namespace Cooking.REST.Tests
             // Assert
             Assert.IsType<ActionResult<List<Challenge>>>(result); // Check for the correct type
                                                                   // Add more assertions as needed
+        }
+
+        [Fact]
+        public void GetAllChallenges_ThrowsException_ReturnsNotFound()
+        {
+            // Arrange
+            mockChallengeRepository.Setup(repo => repo.GetAllChallenges()).Throws(new Exception("Database error"));
+
+            // Act
+            var result = challengeController.GetAllChallenges();
+
+            // Assert
+            Assert.IsType<NotFoundObjectResult>(result.Result);
         }
 
 

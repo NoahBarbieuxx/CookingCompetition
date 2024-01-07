@@ -1,5 +1,4 @@
-﻿using Cooking.BL.Exceptions;
-using Cooking.BL.Interfaces;
+﻿using Cooking.BL.Interfaces;
 using Cooking.BL.Models;
 using Cooking.EF.Exceptions;
 using Cooking.EF.Mappers;
@@ -16,21 +15,37 @@ namespace Cooking.EF.Repositories
 {
     public class RecipeRepositoryEF : IRecipeRepository
     {
-        private readonly CookingContext _ctx;
+        private readonly CookingContext ctx;
 
         public RecipeRepositoryEF(string connectionString)
         {
-            _ctx = new CookingContext(connectionString);
+            this.ctx = new CookingContext(connectionString);
+        }
+
+        private void SaveAndClear()
+        {
+            ctx.SaveChanges();
+            ctx.ChangeTracker.Clear();
         }
 
         public void AddRecipe(int challengeId, string email, Recipe recipe)
         {
             try
             {
-                UserEF uEF = _ctx.Users.Find(email);
-                ChallengeEF cEF = _ctx.Challenges.Find(challengeId);
+                UserEF uEF = ctx.Users.Find(email);
+                ChallengeEF cEF = ctx.Challenges.Find(challengeId);
 
-                RecipeEF newRecipe = MapRecipe.MapToDB(uEF, recipe);
+                if (uEF == null)
+                {
+                    throw new RecipeRepositoryException($"AddRecipe: User met email {email} is niet gevonden");
+                }
+
+                if (cEF == null)
+                {
+                    throw new RecipeRepositoryException($"AddRecipe: Challenge met ID {challengeId} is niet gevonden");
+                }
+
+                RecipeEF newRecipe = MapRecipe.MapToDB(uEF, recipe, ctx);
 
                 uEF.Recipes.Add(newRecipe);
                 cEF.Recipes.Add(newRecipe);
@@ -49,7 +64,7 @@ namespace Cooking.EF.Repositories
         {
             try
             {
-                RecipeEF recipeEF = _ctx.Recipes.Where(x => x.RecipeId == recipeId)
+                RecipeEF recipeEF = ctx.Recipes.Where(x => x.RecipeId == recipeId)
                     .Include(x => x.User)
                     .AsNoTracking()
                     .FirstOrDefault();
@@ -61,23 +76,16 @@ namespace Cooking.EF.Repositories
                 throw new RecipeRepositoryException("GetRecipeById", ex);
             }
         }
-
         public bool RecipeExists(Recipe recipe)
         {
             try
             {
-                return _ctx.Recipes.Any(x => x.RecipeName == recipe.RecipeName && x.RecipeDescription == recipe.Description);
+                return ctx.Recipes.Any(x => x.RecipeName == recipe.RecipeName && x.RecipeDescription == recipe.Description);
             }
             catch (Exception ex)
             {
                 throw new RecipeRepositoryException("UserExists", ex);
             }
-        }
-
-        private void SaveAndClear()
-        {
-            _ctx.SaveChanges();
-            _ctx.ChangeTracker.Clear();
         }
     }
 }

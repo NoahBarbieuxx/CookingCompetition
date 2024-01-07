@@ -31,7 +31,7 @@ namespace Cooking.BL.Models
             {
                 if (value <= 0)
                 {
-                    throw new LikeException("LikeId is invalid! (Must be greater than 0)");
+                    throw new LikeException("LikeId can't be less then 1");
                 }
                 else
                 {

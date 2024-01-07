@@ -4,7 +4,6 @@ using Cooking.EF.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +11,7 @@ namespace Cooking.EF.Mappers
 {
     public class MapUser
     {
-        public static UserEF MapToDB(User user)
+        public static UserEF MapToDB(User user, CookingContext ctx)
         {
             try
             {
@@ -28,27 +27,20 @@ namespace Cooking.EF.Mappers
         {
             try
             {
-                if (userEF == null)
-                {
-                    return null;
-                }
-                else
-                {
-                    User user = new User(userEF.Email);
+                User user = new User(userEF.Email);
 
-                    List<Recipe> recipes = new List<Recipe>();
-                    if (userEF.Recipes != null)
+                List<Recipe> recipes = new List<Recipe>(); // Controle of een user recipes heeft: JA = mappen, NEE = null laten
+                if (userEF.Recipes != null)
+                {
+                    foreach (RecipeEF recipeEF in userEF.Recipes)
                     {
-                        foreach (RecipeEF recipeEF in userEF.Recipes)
-                        {
-                            Recipe recipe = MapRecipe.MapToDomain(recipeEF);
-                            recipes.Add(recipe);
-                        }
+                        Recipe recipe = MapRecipe.MapToDomain(recipeEF);
+                        recipes.Add(recipe);
                     }
-
-                    user.Recipes = recipes;
-                    return user;
                 }
+
+                user.Recipes = recipes;
+                return user;
             }
             catch (Exception ex)
             {

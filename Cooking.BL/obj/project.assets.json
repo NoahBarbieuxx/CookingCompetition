@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj",
+      "projectUniqueName": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj",
       "projectName": "Cooking.BL",
-      "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\Cooking.BL.csproj",
+      "projectPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\Cooking.BL.csproj",
       "packagesPath": "C:\\Users\\barbi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL\\obj\\",
+      "outputPath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\barbi\\AppData\\Roaming\\NuGet\\NuGet.Config",

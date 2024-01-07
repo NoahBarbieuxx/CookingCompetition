@@ -8,9 +8,6 @@ using Cooking.REST.Models.Output;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using static System.Net.Mime.MediaTypeNames;
-using Image = Cooking.BL.Models.Image;
 
 namespace Cooking.REST.Controllers
 {
@@ -55,6 +52,13 @@ namespace Cooking.REST.Controllers
                     using (var stream = new FileStream(imagePath, FileMode.Create))
                     {
                         await image.CopyToAsync(stream);
+                    }
+
+                    var secondImagePath = Path.Combine("..", "jury.ui", "src", "assets", newImage.ImageUrl);
+
+                    using (var secondStream = new FileStream(secondImagePath, FileMode.Create))
+                    {
+                        await image.CopyToAsync(secondStream);
                     }
 
                     _logger.LogInformation($"Image uploaded successfully for recipe ID: {recipeId}", recipeId);

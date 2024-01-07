@@ -10,6 +10,7 @@ namespace Cooking.BL.Models
             Recipes = recipes;
         }
 
+        // MapToDomain - 2
 
         public User(string email)
         {
@@ -27,7 +28,7 @@ namespace Cooking.BL.Models
             {
                 if ((string.IsNullOrWhiteSpace(value)) || (!value.Contains('@')))
                 {
-                    throw new UserException("Email is invalid! (Must be a filled string containing a '@'");
+                    throw new UserException("Email is invalid!");
                 } else
                 {
                     _email = value;
@@ -46,7 +47,7 @@ namespace Cooking.BL.Models
             {
                 if (value == null)
                 {
-                    throw new UserException("Recipes are invalid! (Must be valid recipes)");
+                    throw new RecipeException("Recipes can't be null!");
                 }
                 else
                 {

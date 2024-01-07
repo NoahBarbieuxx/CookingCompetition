@@ -18,6 +18,11 @@ namespace Cooking.EF.Mappers
                 List<RecipeEF> recipesEF = new List<RecipeEF>();
                 if (challenge.Recipes != null)
                 {
+                    foreach (Recipe recipe in challenge.Recipes)
+                    {
+                        //recipesEF.Add(MapRecipe.MapToDB(recipe, ctx));
+                    }
+
                     return new ChallengeEF(challenge.ChallengeName, challenge.Description, challenge.StartDate, challenge.EndDate, recipesEF);
                 }
 
@@ -25,6 +30,7 @@ namespace Cooking.EF.Mappers
                 {
                     return new ChallengeEF(challenge.ChallengeName, challenge.Description, challenge.StartDate, challenge.EndDate, null);
                 }
+
             }
             catch (Exception ex)
             {
@@ -36,29 +42,23 @@ namespace Cooking.EF.Mappers
         {
             try
             {
-                if (challengeEF == null)
+                List<Recipe> recipes = new List<Recipe>();
+
+                if (challengeEF.Recipes != null)
                 {
-                    return null;
+                    foreach (RecipeEF recipeEF in challengeEF.Recipes)
+                    {
+                        recipes.Add(MapRecipe.MapToDomain(recipeEF));
+                    }
+
+                    return new Challenge(challengeEF.ChallengeId, challengeEF.ChallengeName, challengeEF.ChallengeDescription, challengeEF.StartDate, challengeEF.EndDate, recipes);
+
                 }
                 else
                 {
-                    List<Recipe> recipes = new List<Recipe>();
-
-                    if (challengeEF.Recipes != null)
-                    {
-                        foreach (RecipeEF recipeEF in challengeEF.Recipes)
-                        {
-                            recipes.Add(MapRecipe.MapToDomain(recipeEF));
-                        }
-
-                        return new Challenge(challengeEF.ChallengeId, challengeEF.ChallengeName, challengeEF.ChallengeDescription, challengeEF.StartDate, challengeEF.EndDate, recipes);
-
-                    }
-                    else
-                    {
-                        return new Challenge(challengeEF.ChallengeId, challengeEF.ChallengeName, challengeEF.ChallengeDescription, challengeEF.StartDate, challengeEF.EndDate, null);
-                    }
+                    return new Challenge(challengeEF.ChallengeId, challengeEF.ChallengeName, challengeEF.ChallengeDescription, challengeEF.StartDate, challengeEF.EndDate, null);
                 }
+
             }
             catch (Exception ex)
             {

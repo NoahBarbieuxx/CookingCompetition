@@ -4,6 +4,7 @@ using Cooking.BL.Models;
 using Cooking.REST.Controllers;
 using Cooking.REST.Models.Input;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -21,11 +22,16 @@ namespace Cooking.REST.Tests
 
         public UserControllerTest()
         {
+            // Create a mock ILoggerFactory and use it to create a logger
+            var loggerFactory = new Mock<ILoggerFactory>();
+            var logger = new Mock<ILogger<UserController>>();
+            loggerFactory.Setup(factory => factory.CreateLogger(It.IsAny<string>())).Returns(logger.Object);
+
             mockUserRepository = new Mock<IUserRepository>();
             // Initialize UserManager with the mocked repository
             userManager = new UserManager(mockUserRepository.Object);
             // Initialize UserController with the real UserManager
-            userController = new UserController(userManager);
+            userController = new UserController(userManager, loggerFactory.Object);
         }
 
         [Fact]

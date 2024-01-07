@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vAdTYGqNNbJhhMf4PRosy5VC7cV7bhrlXBNn/3jtEwyTCluB6rMkr2ccnCZK7LBpyh4h3l8Hc25wWSy+jSWONA==",
+  "dgSpecHash": "XVWFT8XMhCyH2RIRFSOE0SQh6CL796F1STAxTeOL5/yESQ+Z6qvhik5cMmO87YD+tA6+eFwydRVAVR/pP4paMA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.BL.Tests\\Cooking.BL.Tests.csproj",
+  "projectFilePath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.BL.Tests\\Cooking.BL.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\barbi\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\barbi\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

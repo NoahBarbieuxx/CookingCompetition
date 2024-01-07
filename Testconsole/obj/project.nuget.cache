@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cFD4Eifq9wQ4PWzVgsO37+1MNzU2fxVWLpcCyqAIkXQwCP3xtMXsBI9ZbfbAfMJRBHfpiCgY4oklORtAG8ljHw==",
+  "dgSpecHash": "xYhtCi2/UTimKPbZA5dO/a1UgxaJV3y8v1dHnu3RbkwkGHnZACMp0s1J2nV4rFqw60AI/Hrdnv/WGWWvF/iV/A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Testconsole\\Testconsole.csproj",
+  "projectFilePath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Testconsole\\Testconsole.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\barbi\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\barbi\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

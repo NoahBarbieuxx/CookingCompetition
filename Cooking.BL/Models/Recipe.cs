@@ -29,18 +29,57 @@ namespace Cooking.BL.Models
             Images = images;
         }
 
-        public Recipe(int recipeId, string recipeName, string description)
-        {
-            RecipeName = recipeName;
-            Description = description;
-            RecipeId = recipeId;
-        }
-
         public Recipe(string recipeName, string description)
         {
             RecipeName = recipeName;
             Description = description;
         }
+
+        public Recipe(int recipeId, string recipeName, string description)
+        {
+            RecipeId = recipeId;
+            RecipeName = recipeName;
+            Description = description;
+        }
+
+        //public Recipe(int recipeId, string recipeName, string description, User user)
+        //{
+        //    RecipeId = recipeId;
+        //    RecipeName = recipeName;
+        //    Description = description;
+        //    User = user;
+        //}
+
+        //public Recipe(string recipeName, string description, User user)
+        //{
+        //    RecipeName = recipeName;
+        //    Description = description;
+        //    User = user;
+        //}
+
+        //// MapToDomain - 2
+        //public Recipe(int recipeId, string recipeName, string recipeDescription, User user, List<Image> images)
+        //{
+        //    RecipeId = recipeId;
+        //    RecipeName = recipeName;
+        //}
+
+        //public Recipe(string recipeName, string recipeDescription)
+        //{
+        //    RecipeName = recipeName;
+        //}
+
+        //public Recipe(string recipeName, string recipeDescription, User user, List<Image> images) : this(recipeName, recipeDescription)
+        //{
+        //}
+
+        //public Recipe(string recipeName, string recipeDescription, List<Image> images) : this(recipeName, recipeDescription)
+        //{
+        //}
+
+        //public Recipe(string recipeName, string recipeDescription, User user) : this(recipeName, recipeDescription)
+        //{
+        //}
 
         private int _recipeId;
         public int RecipeId
@@ -53,7 +92,7 @@ namespace Cooking.BL.Models
             {
                 if (value <= 0)
                 {
-                    throw new RecipeException("RecipeId is invalid! (Must be greater than 0)");
+                    throw new RecipeException("RecipeID is invalid!");
                 }
                 else
                 {
@@ -73,7 +112,7 @@ namespace Cooking.BL.Models
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new RecipeException("RecipeName is invalid! (Must be a filled string)");
+                    throw new RecipeException("RecipeName is invalid!");
                 }
                 else
                 {
@@ -93,7 +132,7 @@ namespace Cooking.BL.Models
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new RecipeException("RecipeDescription is invalid! (Must be a filled string)");
+                    throw new RecipeException("RecipeDescription is invalid!");
                 }
                 else
                 {
@@ -126,7 +165,7 @@ namespace Cooking.BL.Models
             {
                 if (value == null)
                 {
-                    throw new RecipeException("User is invalid! (Must be a valid user)");
+                    throw new RecipeException("User is invalid!");
                 }
                 else
                 {
@@ -145,6 +184,38 @@ namespace Cooking.BL.Models
             set
             {
                 _images = value;
+            }
+        }
+
+        public void AddImage(Image image)
+        {
+            if (image == null)
+            {
+                throw new RecipeException("AddImage - Image is null");
+            }
+            if (_images.Contains(image))
+            {
+                throw new RecipeException("AddImage - Image already is added!");
+            }
+            else
+            {
+                _images.Add(image);
+            }
+        }
+
+        public void AddLike(Like like)
+        {
+            if (like == null)
+            {
+                throw new RecipeException("AddLike - Like is null");
+            }
+            if (_likes.Contains(like))
+            {
+                throw new RecipeException("AddLike - Like already is added!");
+            }
+            else
+            {
+                _likes.Add(like);
             }
         }
     }

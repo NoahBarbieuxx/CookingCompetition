@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+Dq+2i387aIB0Y4WeGZvdU5PyGm+2ikJJsNza+zZ4JvgTOMppSYK5y9nxNG4rcdywuJlibv5F56lRD4UCox7Ig==",
+  "dgSpecHash": "qPjas58NV/O5SaioFBOKdXAk2Qrn44E+2wBfCjDz22mqJ/ep7sAgNQF9TZrtH2yaPuSOwxr6YjhGgy9jaJPY3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition_Begin_2024\\Cooking.REST.Tests\\Cooking.REST.Tests.csproj",
+  "projectFilePath": "C:\\Users\\barbi\\Documents\\hogent\\sem3\\2 - Projectwerk (DI)\\Groepsopdracht - Test\\Cooking-Competition\\Cooking.REST.Tests\\Cooking.REST.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\barbi\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\barbi\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",

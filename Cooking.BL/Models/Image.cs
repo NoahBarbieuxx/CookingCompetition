@@ -32,7 +32,7 @@ namespace Cooking.BL.Models
             {
                 if (value <= 0)
                 {
-                    throw new ImageException("ImageId is invalid! (Must be greater than 0)");
+                    throw new ImageException("ImageId can't be smaller then 1!");
                 }
                 else
                 {

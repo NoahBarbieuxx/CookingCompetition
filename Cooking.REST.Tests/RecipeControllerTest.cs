@@ -4,6 +4,7 @@ using Cooking.BL.Models;
 using Cooking.REST.Controllers;
 using Cooking.REST.Models.Input;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -22,53 +23,58 @@ namespace Cooking.REST.Tests
         private readonly ChallengeManager challengeManager;
         private readonly UserManager userManager;
         private readonly RecipeController recipeController;
+        private readonly Mock<ILogger<RecipeController>> mockLogger;
 
         public RecipeControllerTest()
         {
             mockRecipeRepository = new Mock<IRecipeRepository>();
-            // Initialize RecipeManager, ChallengeManager, and UserManager with the mocked repositories
+            mockChallengeRepository = new Mock<IChallengeRepository>();
+            mockUserRepository = new Mock<IUserRepository>();
+            mockLogger = new Mock<ILogger<RecipeController>>();
+
+            // Zorg ervoor dat alle afhankelijkheden correct worden gemockt en doorgegeven
+            var loggerFactory = new Mock<ILoggerFactory>();
+            loggerFactory.Setup(factory => factory.CreateLogger(It.IsAny<string>())).Returns(mockLogger.Object);
+
             recipeManager = new RecipeManager(mockRecipeRepository.Object);
             challengeManager = new ChallengeManager(mockChallengeRepository.Object);
             userManager = new UserManager(mockUserRepository.Object);
-            // Initialize RecipeController with the real RecipeManager
-            recipeController = new RecipeController(recipeManager, challengeManager, userManager);
+
+            recipeController = new RecipeController(recipeManager, challengeManager, userManager, loggerFactory.Object);
         }
 
         [Fact]
-        public void AddRecipeToChallenge_ValidInput_ReturnsOk()
+        public void AddRecipeToChallenge_Success_ReturnsOk()
         {
             // Arrange
-            int challengeId = 1;
-            string email = "user@example.com";
-            var recipeInput = new RecipeInput("New Recipe", "Description");
-
-            // Mock the behavior of _recipeManager.AddRecipe to indicate success
-            mockRecipeRepository.Setup(manager => manager.AddRecipe(challengeId, email, It.IsAny<Recipe>()));
+            var challengeId = 1;
+            var email = "test@example.com";
+            var recipeInput = new RecipeInput ("Test Recipe", "Description" );
 
             // Act
             var result = recipeController.AddRecipeToChallenge(challengeId, email, recipeInput);
 
             // Assert
-            Assert.IsType<OkResult>(result);
+            Assert.IsType<OkResult>(result.Result);
         }
 
         [Fact]
-        public void AddRecipeToChallenge_AddingFails_ReturnsBadRequest()
+        public void AddRecipeToChallenge_Failure_ReturnsBadRequest()
         {
             // Arrange
-            int challengeId = 1;
-            string email = "user@example.com";
-            var recipeInput = new RecipeInput("New Recipe", "Description");
-
-            // Mock the behavior of _recipeManager.AddRecipe to throw an exception
-            mockRecipeRepository.Setup(manager => manager.AddRecipe(challengeId, email, It.IsAny<Recipe>()))
-                             .Throws(new Exception("Adding recipe failed"));
+            var challengeId = 1;
+            var email = "test@example.com";
+            var recipeInput = new RecipeInput("Test Recipe", "Description");
+            mockRecipeRepository.Setup(repo => repo.AddRecipe(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<Recipe>()))
+                                .Throws(new Exception("Database error"));
 
             // Act
             var result = recipeController.AddRecipeToChallenge(challengeId, email, recipeInput);
 
             // Assert
-            Assert.IsType<BadRequestObjectResult>(result);
+            Assert.IsType<BadRequestObjectResult>(result.Result);
         }
+
+
     }
 }

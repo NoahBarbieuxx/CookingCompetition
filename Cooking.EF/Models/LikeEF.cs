@@ -16,6 +16,7 @@ namespace Cooking.EF.Models
 
         }
 
+        // MapToDB
         public LikeEF(DateTime likeDate)
         {
             LikeDate = likeDate;
@@ -30,10 +31,7 @@ namespace Cooking.EF.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int LikeId { get; set; }
-
-        [Required]
         public DateTime LikeDate { get; set; }
-
         public RecipeEF Recipe { get; set; }
     }
 }

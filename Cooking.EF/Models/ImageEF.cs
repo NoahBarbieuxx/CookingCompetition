@@ -21,6 +21,8 @@ namespace Cooking.EF.Models
             ImageUrl = imageUrl;
         }
 
+        // MapToDB
+
         public ImageEF(int imageId, string imageUrl)
         {
             ImageId = imageId;
@@ -30,10 +32,7 @@ namespace Cooking.EF.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ImageId { get; set; }
-
-        [Required]
         public string ImageUrl { get; set; }
-
         public RecipeEF Recipe { get; set; }
     }
 }

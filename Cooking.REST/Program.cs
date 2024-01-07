@@ -22,7 +22,6 @@ namespace Cooking.REST
             builder.Services.AddSingleton<ILikeRepository>(r => new LikeRepositoryEF(connectionString));
             builder.Services.AddSingleton<LikeManager>();
             builder.Services.AddSingleton<IImageRepository>(r => new ImageRepositoryEF(connectionString));
-
             builder.Services.AddSingleton<ImageManager>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -35,7 +34,7 @@ namespace Cooking.REST
                 options.AddPolicy("AllowSpecificOrigin",
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:5173/") // Replace with your frontend's URL
+                        builder.WithOrigins("http://localhost:5173", "http://localhost:5174") // Replace with your frontend's URL
                                .AllowAnyMethod()
                                .AllowAnyHeader();
                     });

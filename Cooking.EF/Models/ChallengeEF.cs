@@ -39,21 +39,10 @@ namespace Cooking.EF.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ChallengeId { get; set; }
-
-        [Required]
-        [Column(TypeName = "varchar(250)")]
         public string ChallengeName { get; set; }
-
-        [Required]
-        [Column(TypeName = "varchar(250)")]
         public string ChallengeDescription { get; set; }
-
-        [Required]
         public DateTime StartDate { get; set; }
-
-        [Required]
         public DateTime EndDate { get; set; }
-
         public List<RecipeEF> Recipes { get; set; } = new List<RecipeEF>();
     }
 }

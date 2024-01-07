@@ -5,13 +5,14 @@ namespace Cooking.REST.Models.Output
 {
     public class RecipeOutput
     {
-        public RecipeOutput(int recipeId, string recipeName, string recipeDescription, User user, List<Image> images)
+        public RecipeOutput(int recipeId, string recipeName, string recipeDescription, User user, List<Image> images/*, List<Ingredient> ingredients*/)
         {
             RecipeId = recipeId;
             RecipeName = recipeName;
             RecipeDescription = recipeDescription;
             User = user;
             Images = images;
+            //Ingredients = ingredients;
         }
 
         public int RecipeId { get; set; }

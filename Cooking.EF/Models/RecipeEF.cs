@@ -24,14 +24,6 @@ namespace Cooking.EF.Models
             User = user;
         }
 
-        public RecipeEF(int recipeId, string recipeName, string description, List<ImageEF> images, UserEF u)
-        {
-            RecipeId = recipeId;
-            RecipeName = recipeName;
-            RecipeDescription = description;
-            Images = images;
-        }
-
         public RecipeEF(int recipeId, string recipeName, string recipeDescription, List<ImageEF> images, UserEF user, List<LikeEF> likes)
         {
             RecipeId = recipeId;
@@ -45,15 +37,8 @@ namespace Cooking.EF.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RecipeId { get; set; }
-
-        [Required]
-        [Column(TypeName = "varchar(250)")]
         public string RecipeName { get; set; }
-
-        [Required]
-        [Column(TypeName = "varchar(250)")]
         public string RecipeDescription { get; set; }
-
         public List<ChallengeEF> Challenges { get; set; } = new List<ChallengeEF>();
         public List<ImageEF> Images { get; set; } = new List<ImageEF>();
         public UserEF User { get; set; }

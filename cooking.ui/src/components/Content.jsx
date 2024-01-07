@@ -8,7 +8,7 @@ function Content() {
   return (
     <>
         <div className="Content">
-            <h2>Vorige Challenges</h2>
+            <h2 className='content-title'>Vorige Challenges</h2>
             <Challenges />
         </div>
     </>

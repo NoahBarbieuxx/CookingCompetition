@@ -3,15 +3,18 @@ import ChallengesRecipe from './ChallengesRecipe';
 import ChallengeDTO from '../DTO/ChallengeDTO';
 import '../styles/Challenges-style.css'
 import axios from 'axios';
+import PopUp from './PopUp';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { } from '@fortawesome/free-solid-svg-icons';
 import { } from '@fortawesome/free-regular-svg-icons';
 
 class Challenges extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state ={
-            Challenges:[]
+        this.state = {
+            Challenges: [],
+            isPopupOpen: false,
+            selectedChallengeId: null,
         };
         this.API_URL = "http://localhost:5221/";
     }
@@ -55,6 +58,20 @@ class Challenges extends Component {
             
     // }
 
+    openPopup = (challengeId) => {
+        this.setState({
+            isPopupOpen: true,
+            selectedChallengeId: challengeId,
+        });
+    };
+
+    closePopup = () => {
+        this.setState({
+            isPopupOpen: false,
+            selectedChallengeId: null,
+        });
+    };
+
     render() {
 
         const monthName = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
@@ -63,16 +80,16 @@ class Challenges extends Component {
         const ColorArr2 = ["#F6DCBD", "#DEECDA", "#D9E3F8"];
         const ColorArr3 = ["#F9F2EA", "#F1F7EF", "#EAEFF9"];
 
-        // const monthTest = ["SEPTEMBER", "AUGUSTUS", "JULI"];
         const BeginTextTest = ["Wie maakt de", "Wie maakt de", "Wie maakt de"];
 
-        const {Challenges} = this.state;
+        const { Challenges, isPopupOpen, selectedChallengeId } = this.state;
+
         return (
             <>
                 {Challenges.map((challenge, index) => (
                     <div className="Challenges" key={challenge.challengeId}>
                         <div className="ChallengeMain" style={{ backgroundColor: ColorArr2[index % 3] }}>
-                            <button className='Action-btn-2'>
+                            <button className='Action-btn-2' onClick={() => this.openPopup(challenge.challengeId)}>
                                 <p className="btn-txt-2">doe mee!</p>
                             </button>
                             <div className="ChallengesText">
@@ -91,17 +108,22 @@ class Challenges extends Component {
                         </div>
                         <div className="ChallengeRecipe" style={{ backgroundColor: ColorArr3[index % 3] }}>
                             <div className="ChallengeRecipeMain">
-                                <ChallengesRecipe />
-                                <ChallengesRecipe />
-                                <ChallengesRecipe />
-                                <ChallengesRecipe />
+                                <ChallengesRecipe key={challenge.challengeId} challengeId={challenge.challengeId} />
                             </div>
                         </div>
                     </div>
                 ))}
+
+
+                {isPopupOpen && (
+                    <PopUp
+                        onClose={this.closePopup}
+                        challengeId={selectedChallengeId}
+                    />
+                )}
             </>
         )
     }
 }
 
-export default Challenges
+export default Challenges;

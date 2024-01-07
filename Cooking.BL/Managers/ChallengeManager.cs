@@ -6,30 +6,18 @@ namespace Cooking.BL.Managers
 {
     public class ChallengeManager
     {
-        private readonly IChallengeRepository _challengeRepository;
+        private readonly IChallengeRepository _repo;
 
-        public ChallengeManager(IChallengeRepository challengeRepository)
+        public ChallengeManager(IChallengeRepository repo)
         {
-            _challengeRepository = challengeRepository;
-        }
-
-        public void AddChallenge(Challenge challenge)
-        {
-            try
-            {
-                _challengeRepository.AddChallenge(challenge);
-            }
-            catch (Exception ex)
-            {
-                throw new ChallengeManagerException("AddChallenge", ex);
-            }
+            _repo = repo;
         }
 
         public List<Challenge> GetAllChallenges()
         {
             try
             {
-                return _challengeRepository.GetAllChallenges();
+                return _repo.GetAllChallenges();
             } 
             catch (Exception ex)
             {
@@ -41,11 +29,23 @@ namespace Cooking.BL.Managers
         {
             try
             {
-                return _challengeRepository.GetChallengeById(challengeId);
+                return _repo.GetChallengeById(challengeId);
             }
             catch (Exception ex)
             {
                 throw new ChallengeManagerException("GetChallengeById", ex);
+            }
+        }
+
+        public void AddChallenge(Challenge challenge)
+        {
+            try
+            {
+                _repo.AddChallenge(challenge);
+            }
+            catch (Exception ex)
+            {
+                throw new ChallengeManagerException("AddChallenge", ex);
             }
         }
     }

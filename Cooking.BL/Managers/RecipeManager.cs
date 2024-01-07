@@ -6,18 +6,18 @@ namespace Cooking.BL.Managers
 {
     public class RecipeManager
     {
-        private readonly IRecipeRepository _recipeRepository;
+        private readonly IRecipeRepository _repo;
 
-        public RecipeManager(IRecipeRepository recipeRepository)
+        public RecipeManager(IRecipeRepository repo)
         {
-            _recipeRepository = recipeRepository;
+            _repo = repo;
         }
 
         public void AddRecipe(int challengeId, string email, Recipe recipe)
         {
             try
             {
-                _recipeRepository.AddRecipe(challengeId, email, recipe);
+                _repo.AddRecipe(challengeId, email, recipe);
             }
             catch (Exception ex)
             {
@@ -29,7 +29,7 @@ namespace Cooking.BL.Managers
         {
             try
             {
-                return _recipeRepository.GetRecipeById(recipeId);
+                return _repo.GetRecipeById(recipeId);
             }
             catch (Exception ex)
             {
@@ -41,7 +41,7 @@ namespace Cooking.BL.Managers
         {
             try
             {
-                return _recipeRepository.RecipeExists(recipe);
+                return _repo.RecipeExists(recipe);
             }
             catch (Exception ex)
             {
